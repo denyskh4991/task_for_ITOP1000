@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from './currency.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'currency-converter';
+export class AppComponent implements OnInit {
+  exchangeRates: any;
+
+  constructor(private currencyService: CurrencyService) {}
+
+  ngOnInit() {
+    this.currencyService.getExchangeRates().subscribe(data => {
+      this.exchangeRates = data;
+    });
+  }
 }

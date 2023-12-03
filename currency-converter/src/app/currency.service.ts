@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CurrencyService {
-  private apiUrl = 'YOUR_PUBLIC_API_URL'; // Замените на реальный URL API
+  private apiUrl = 'YOUR_PUBLIC_API_URL';
 
   constructor(private http: HttpClient) {}
 
