@@ -1,23 +1,20 @@
 <div>
-  <form>
-    <label>Amount:</label>
-    <input [(ngModel)]="amount" type="number" />
+  <label>Amount:</label>
+  <input [ngModel]="amount" (ngModelChange)="amount = $event" type="number" />
 
-    <label>From:</label>
-    <select [(ngModel)]="currencyFrom" (change)="updateExchangeRates()">
-      <option value="UAH">UAH</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-    </select>
+  <label>From Currency:</label>
+  <select [ngModel]="currencyFrom" (ngModelChange)="currencyFrom = $event" (change)="updateExchangeRates()">
+  </select>
 
-    <label>To:</label>
-    <select [(ngModel)]="currencyTo" (change)="updateExchangeRates()">
-      <option value="UAH">UAH</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-    </select>
+  <label>To Currency:</label>
+  <select [ngModel]="currencyTo" (ngModelChange)="currencyTo = $event" (change)="updateExchangeRates()">
+  </select>
 
-    <p>Converted: {{ convertFrom() | number: '1.2-2' }} {{ currencyTo }}</p>
-    <p>Converted: {{ convertTo() | number: '1.2-2' }} {{ currencyFrom }}</p>
-  </form>
+  <div>
+    Converted: {{ convertFrom() | number: '1.2-2' }} {{ currencyTo }}
+  </div>
+
+  <div>
+    Converted: {{ convertTo() | number: '1.2-2' }} {{ currencyFrom }}
+  </div>
 </div>
