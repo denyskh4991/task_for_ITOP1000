@@ -1,1 +1,23 @@
-<p>currency-converter works!</p>
+<div>
+  <form>
+    <label>Amount:</label>
+    <input [(ngModel)]="amount" type="number" />
+
+    <label>From:</label>
+    <select [(ngModel)]="currencyFrom" (change)="updateExchangeRates()">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+    <label>To:</label>
+    <select [(ngModel)]="currencyTo" (change)="updateExchangeRates()">
+      <option value="UAH">UAH</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+
+    <p>Converted: {{ convertFrom() | number: '1.2-2' }} {{ currencyTo }}</p>
+    <p>Converted: {{ convertTo() | number: '1.2-2' }} {{ currencyFrom }}</p>
+  </form>
+</div>
