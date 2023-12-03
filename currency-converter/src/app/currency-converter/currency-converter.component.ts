@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { CurrencyService } from '../currency.service';
 
 @Component({
@@ -6,12 +7,20 @@ import { CurrencyService } from '../currency.service';
   templateUrl: './currency-converter.component.html',
   styleUrls: ['./currency-converter.component.css'],
 })
-export class CurrencyConverterComponent {
-  amount: number = 1;
-  currencyFrom: string = 'USD';
-  currencyTo: string = 'UAH';
+export class CurrencyConverterComponent implements OnInit {
+  conversionForm!: FormGroup; // добавим !
 
-  constructor(private currencyService: CurrencyService) {}
+  constructor(private fb: FormBuilder, private currencyService: CurrencyService) {}
+
+  ngOnInit(): void {
+    this.conversionForm = this.fb.group({
+      amount: 1,
+      currencyFrom: 'USD',
+      currencyTo: 'UAH',
+    });
+
+    this.updateExchangeRates();
+  }
 
   updateExchangeRates() {
   }

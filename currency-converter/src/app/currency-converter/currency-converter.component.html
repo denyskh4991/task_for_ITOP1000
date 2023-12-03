@@ -1,20 +1,20 @@
-<div>
+<div [formGroup]="conversionForm">
   <label>Amount:</label>
-  <input [ngModel]="amount" (ngModelChange)="amount = $event" type="number" />
+  <input formControlName="amount" type="number" />
 
   <label>From Currency:</label>
-  <select [ngModel]="currencyFrom" (ngModelChange)="currencyFrom = $event" (change)="updateExchangeRates()">
+  <select formControlName="currencyFrom" (change)="updateExchangeRates()">
   </select>
 
   <label>To Currency:</label>
-  <select [ngModel]="currencyTo" (ngModelChange)="currencyTo = $event" (change)="updateExchangeRates()">
+  <select formControlName="currencyTo" (change)="updateExchangeRates()">
   </select>
 
   <div>
-    Converted: {{ convertFrom() | number: '1.2-2' }} {{ currencyTo }}
+    Converted: {{ convertFrom() | number: '1.2-2' }} {{ conversionForm.get('currencyTo').value }}
   </div>
 
   <div>
-    Converted: {{ convertTo() | number: '1.2-2' }} {{ currencyFrom }}
+    Converted: {{ convertTo() | number: '1.2-2' }} {{ conversionForm.get('currencyFrom').value }}
   </div>
 </div>
