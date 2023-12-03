@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // добавим ReactiveFormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CurrencyConverterModule } from './currency-converter/currency-converter.module';
 
 import { AppComponent } from './app.component';
-import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
 import { CurrencyService } from './currency.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyConverterComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +18,7 @@ import { CurrencyService } from './currency.service';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    CurrencyConverterModule,
   ],
   providers: [CurrencyService],
   bootstrap: [AppComponent],

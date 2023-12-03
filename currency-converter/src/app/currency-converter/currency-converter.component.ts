@@ -8,7 +8,7 @@ import { CurrencyService } from '../currency.service';
   styleUrls: ['./currency-converter.component.css'],
 })
 export class CurrencyConverterComponent implements OnInit {
-  conversionForm!: FormGroup; // добавим !
+  conversionForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private currencyService: CurrencyService) {}
 
@@ -23,13 +23,16 @@ export class CurrencyConverterComponent implements OnInit {
   }
 
   updateExchangeRates() {
+    // implement the logic to update exchange rates
   }
 
   convertFrom(): number {
+    // implement the logic for conversion
     return 0;
   }
 
   convertTo(): number {
+    // implement the logic for conversion
     return 0;
   }
 }

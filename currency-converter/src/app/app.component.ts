@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from './currency.service';
-import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
 
 @Component({
   selector: 'app-root',
