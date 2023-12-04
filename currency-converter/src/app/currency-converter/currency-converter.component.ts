@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CurrencyService } from '../currency.service';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-currency-converter',
   templateUrl: './currency-converter.component.html',
   styleUrls: ['./currency-converter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrencyConverterComponent implements OnInit {
   conversionForm!: FormGroup;

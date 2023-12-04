@@ -1,13 +1,17 @@
-<div [formGroup]="conversionForm">
+<form [formGroup]="conversionForm">
   <label>Amount:</label>
   <input formControlName="amount" type="number" />
 
   <label>From Currency:</label>
   <select formControlName="currencyFrom" (change)="updateExchangeRates()">
+    <option value="USD">USD</option>
+    <!-- Добавьте другие валюты в формате <option value="YOUR_CURRENCY_CODE">YOUR_CURRENCY_CODE</option> -->
   </select>
 
   <label>To Currency:</label>
   <select formControlName="currencyTo" (change)="updateExchangeRates()">
+    <option value="UAH">UAH</option>
+    <!-- Добавьте другие валюты в формате <option value="YOUR_CURRENCY_CODE">YOUR_CURRENCY_CODE</option> -->
   </select>
 
   <div>
@@ -17,4 +21,4 @@
   <div>
     Converted: {{ convertTo() | number: '1.2-2' }} {{ conversionForm.get('currencyFrom').value }}
   </div>
-</div>
+</form>
